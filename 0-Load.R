@@ -5,7 +5,7 @@
 
 #-------- Set up environment
 
-
+library(ggplot2)
 
 
 
@@ -13,5 +13,6 @@
 #I've downloaded the test and train data sets and have saved them directly in the R project file associated with this project
 
 
-
+test <- read.csv("test.csv", stringsAsFactors = FALSE)
+train <- read.csv("train.csv", stringsAsFactors = FALSE)
 
