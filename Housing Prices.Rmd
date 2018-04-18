@@ -1,0 +1,20 @@
+---
+title: 'Getting Started With Kaggle: Housing Prices - Advanced Regression Techniques'
+author: "Courtney McKay"
+output: 
+  html_document:
+    toc: true
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Summary
+
+This is my first attempt at completing a Kaggle competition. I'm using the Getting Started competition titled "Housing Prices: Advanced Regression Techniques". 
+
+With 79 explanatory variables describing (almost) every aspect of residential homes in Ames, Iowa, this competition challenges you to predict the final price of each home.
+
+
