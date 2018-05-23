@@ -36,9 +36,27 @@ colSums(sapply(train, is.na))
 #looking at correlations
 
   #----isolate continuous and categorical variables
+  colnames(train)
+  str(train)
+  cat_var <- colnames(train)[which(sapply(train, is.character))]
+  numeric_var <- colnames(train)[which(sapply(train, is.numeric))]
+
+  
+  
+  #convert characters to factors
+  
+  train[,(cat_var) := lapply(.SD, as.factor), .SDcols = cat_var]  #for more info on how to work with data tables, go here: https://www.datacamp.com/courses/data-table-data-manipulation-r-tutorial
 
 
+  train_cat <- train[,.SD, .SDcols = cat_var]
+  train_cont <- train[,.SD,.SDcols = numeric_var]
 
-
-
+  #doing some plotting
+  
+  correlations <- cor(na.omit(train_cont[,-1, with = FALSE]))
+  
+  row_indic <- apply(correlations, 1, function(x) sum(x > 0.3 | x < -0.3) > 1)
+  
+  correlations<- correlations[row_indic ,row_indic ]
+  corrplot(correlations, method="square")
 
