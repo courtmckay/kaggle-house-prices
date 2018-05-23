@@ -6,7 +6,8 @@
 #-------- Set up environment
 
 library(ggplot2)
-
+library(scales)
+setwd("R/kaggle-house-prices")
 
 
 #------- Load data

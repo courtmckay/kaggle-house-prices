@@ -12,10 +12,32 @@ View(head(train)) #train contains all attributes as well as the sales price
 
 summary(train$SalePrice) #prices range from a low of $34K to $755K
 
-#plotting the response variable:  ###ended here
 
-ggplot(data = train$SalePrice,
-  aes(x=train@SalePrice))
+#plotting the response variable:
+
+  #----what is distribution of prices?
+
+ggplot(train, aes(x=train$SalePrice)) + 
+  geom_histogram(binwidth=25000, colour="black", fill="white") +
+  geom_vline(aes(xintercept=mean(train$SalePrice, na.rm=T)),   # Ignore NA values for mean
+             color="red", linetype="dashed", size=1) +
+  scale_x_continuous(labels = comma) +
+  xlab("Sale Price") +
+  ylab("Number of Houses") + 
+  theme_minimal()
+
+# The rest of the code will follow, roughly, this Kaggle kernal: https://www.kaggle.com/notaapple/detailed-exploratory-data-analysis-using-r
+#how many missing values are there?
+
+colSums(sapply(train, is.na))
+
+
+
+#looking at correlations
+
+  #----isolate continuous and categorical variables
+
+
 
 
 
